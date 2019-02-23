@@ -9,7 +9,15 @@ int main(){
     puts("AVR-X");
     puts("By: Evan Pratten <ewpratten@gmail.com>\n");
     puts("Starting");
-    puts("Testing dio");
+
+    // test dio (pin 13 light)
+    // puts("Testing dio");
+
+    puts("Enabling echo for debug");
+    for(;;){
+        char input = getchar();
+        printf("%c", input);
+    }
 
     return 0;
 }
