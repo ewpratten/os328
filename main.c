@@ -9,6 +9,7 @@ int main(){
     puts("AVR-X");
     puts("By: Evan Pratten <ewpratten@gmail.com>\n");
     puts("Starting");
+    puts("Testing dio");
 
     return 0;
 }

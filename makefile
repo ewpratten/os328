@@ -5,7 +5,7 @@ programmerDev=/dev/ttyACM1
 programmerType=arduino
 
 cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType) -Wall -Werror -Wextra -Os -Wno-incompatible-pointer-types
-objects=$(patsubst %.c,%.o,$(wildcard *.c)) io/serial.c
+objects=$(patsubst %.c,%.o,$(wildcard *.c)) io/*.c
 
 
 .PHONY: flash clean

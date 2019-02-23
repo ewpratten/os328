@@ -8,3 +8,23 @@ gcc-avr
 avr-libc
 avrdude
 ```
+
+## Building
+Just run the make command:
+```
+make
+```
+
+## Deploying
+Connect your atmega device over usb and set the interface port in the `makefile`
+```
+baud=115200
+avrType=atmega328p
+avrFreq=16000000 # 16 Mhz
+programmerDev=/dev/<interface>
+```
+
+Next, run the following make command:
+```
+make flash
+```
