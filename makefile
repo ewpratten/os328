@@ -1,7 +1,8 @@
 baud=115200
 avrType=atmega328p
 avrFreq=16000000 # 16 Mhz
-programmerDev=/dev/ttyACM1
+programmerDev=/dev/ttyACM0
+commsBaud=9600
 programmerType=arduino
 
 cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType) -Wall -Werror -Wextra -Os -Wno-incompatible-pointer-types
@@ -27,3 +28,6 @@ flash: main.hex
 clean:
 	rm -f main.hex main.elf main.o
 	#$(objects)
+
+connect:
+	screen $(programmerDev) $(commsBaud)
