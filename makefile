@@ -1,10 +1,10 @@
 baud=115200
 avrType=atmega328p
 avrFreq=16000000 # 16 Mhz
-programmerDev=/dev/ttyUSB0
+programmerDev=/dev/ttyACM1
 programmerType=arduino
 
-cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType) -Wall -Werror -Wextra -Os
+cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType) -Wall -Werror -Wextra -Os -Wno-incompatible-pointer-types
 objects=$(patsubst %.c,%.o,$(wildcard *.c)) io/serial.c
 
 
