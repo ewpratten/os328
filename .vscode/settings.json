@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.tidal": "haskell",
-        "serial.h": "c"
+        "serial.h": "c",
+        "ubasic.h": "c",
+        "tokenizer.h": "c"
     }
 }
