@@ -59,4 +59,6 @@
 #define gpio_setOutput( port_letter, number ) port_letter |= (1<<number)
 #define gpio_setInput( port_letter, number )  port_letter &= (0<<number)
 
+void gpio_test();
+
 #endif
