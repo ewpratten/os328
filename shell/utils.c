@@ -51,6 +51,9 @@ size_t getline(char **lineptr, size_t *n, FILE *stream) {
         if (c == '\n') {
             break;
         }
+        if (c=='\r'){
+            break;
+        }
         c = fgetc(stream);
     }
 

@@ -37,9 +37,12 @@ int main(){
     puts("DONE");
     
     /* BASIC interpreter loop */
+    puts("\nREADY"); // Just like the c64
+
     for(;;){
         // Get a line from serial
         lineSize = getline(&b, &bufferSize, stdin);
+        puts(&buffer[strlen(buffer) - lineSize]);
         // char line[50];
         
         // Append line to program buffer
@@ -47,7 +50,7 @@ int main(){
         
         // Check for special commands
         if(strncmp(&program[strlen(program) - lineSize], "run\n", 3)==0){
-            shell_utils_cutstr(program, 6);
+            shell_utils_cutstr(program, 14);
             int len = strlen(program);
             program[len-4] = 0;
 
@@ -56,8 +59,6 @@ int main(){
             do {
                 ubasic_run();
             } while(!ubasic_finished());
-        } else if(strncmp(&program[strlen(program) - lineSize], "shutdown\n", 8)==0){
-            return 0;
         }
     }
 

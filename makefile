@@ -6,7 +6,8 @@ programmerDev=/dev/ttyACM0
 commsBaud=9600
 programmerType=arduino
 
-cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType) -Wall -Werror -Wextra -Os -Wno-incompatible-pointer-types -Wno-sign-compare
+cflags=-DF_CPU=$(avrFreq) -mmcu=$(avrType)  -Os -Wno-incompatible-pointer-types -Wno-sign-compare
+# -Wall -Werror -Wextra
 objects=$(patsubst %.c,%.o,$(wildcard *.c)) io/*.c shell/*.c
 
 
@@ -35,3 +36,6 @@ connect:
 
 shell:
 	gcc -Wall -Os -Wno-incompatible-pointer-types -Wno-implicit-function-declaration shell/*.c -o shell.out
+
+finddevices:
+	ls /dev/ttyACM*
