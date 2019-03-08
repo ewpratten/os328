@@ -22,7 +22,7 @@ int main(){
     #endif
 
     /* Header text */
-    puts("AVR-X");
+    puts("os328");
     puts("By: Evan Pratten <ewpratten@gmail.com>\n");
     puts("Starting");
 

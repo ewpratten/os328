@@ -1,8 +1,8 @@
-# avr-x
+# os328
 A kernel / os for the atmega328p
 
 ## Build requirements
-avr-x must be built on a linux machine with the following packages:
+os328 must be built on a linux machine with the following packages:
 ```
 gcc-avr
 avr-libc
