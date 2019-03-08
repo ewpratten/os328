@@ -29,7 +29,7 @@ void sd_deselectedSDCard() {
 
 /**
  * Sende einen SD-Card-Befehl
- * cmd der Befehl
+ * cmd der BefehlHang W/
  * arg der Parameter
  *
  * Wartet das Ergebnis ab und liefert es zurück
@@ -100,13 +100,15 @@ int sd_initSDCard( void ) {
   // alles ok, dann ACMD41 aufruf, womit die Karte initialisiert wird.
   if( result == R1_IDLE_STATE) {    
     unsigned int t0 = millis();
-    while ((result = sd_doASCSDCardCommand(ACMD41, 0)) != R1_READY_STATE) {
+    while ((result = sd_doASCSDCardCommand(ACMD41, 0)) != (unsigned char)R1_READY_STATE) {
+  puts("preparing");
       // check for timeout
       if( (millis() - t0) > SD_INIT_TIMEOUT ) {
         break;
       } // if 
     } // whilte
   } // if 
+  
   
   sd_deselectedSDCard();  
 
@@ -303,8 +305,8 @@ int sd_sdCardBegin( int csPin ) {
   gpio_mode( csPin, OUTPUT);  
   gpio_write( csPin, HIGH );  
   sdCardInfo.csPin= csPin;
-  spi_init();   
-  return sd_initSDCard() && sd_readSDCardInfos();  
+  spi_init();
+  return sd_initSDCard() && sd_readSDCardInfos();
 }
 
 
