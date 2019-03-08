@@ -27,7 +27,9 @@ int main(){
     puts("Starting");
 
     /* Init and read from SDCARD */
+    printf("Initalizing storage devicd.. ");
     sd_sdCardBegin(4);
+    puts("DONE");
 
     /* Run init.sys script before boot-time tests, but after component initalization*/
     ubasic_init(bootscript_init);

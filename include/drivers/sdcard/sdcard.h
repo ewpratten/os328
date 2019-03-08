@@ -8,7 +8,34 @@
 
 #define SD_CARD_SS_PIN 4 
 
+struct SDCartInfo {  
+  unsigned int volumeStartSector;
+  short sectorsPerFat;
+  char  sectorsPerCluster;
+  unsigned int fatStartSector;   
+  unsigned int rootDirSector;
+  unsigned int dataStartSector;
+  unsigned int fatSector;
+  char  csPin;
+};
 
+struct SDFile {  
+  short cursorInSector;
+  unsigned int currentSector;
+  unsigned int currentCluster;
+  char  sectorCounter;
+  unsigned int length;
+  unsigned int filePosition;
+};
+
+extern unsigned char  lastStatus;
+extern struct SDFile         file;
+extern struct SDCartInfo     sdCardInfo;
+extern unsigned char  sdBuffer[512];
+extern unsigned short fatBuffer[256];
+
+
+// extern long const FAT32MASK;
 
 #define BUFFER_LENGTH 512
 

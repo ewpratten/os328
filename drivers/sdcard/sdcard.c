@@ -6,25 +6,6 @@
 #define true 1
 #define false 0
 
-struct SDCartInfo {  
-  unsigned int volumeStartSector;
-  short sectorsPerFat;
-  char  sectorsPerCluster;
-  unsigned int fatStartSector;   
-  unsigned int rootDirSector;
-  unsigned int dataStartSector;
-  unsigned int fatSector;
-  char  csPin;
-};
-
-struct SDFile {  
-  short cursorInSector;
-  unsigned int currentSector;
-  unsigned int currentCluster;
-  char  sectorCounter;
-  unsigned int length;
-  unsigned int filePosition;
-};
 
 unsigned char       lastStatus;
 struct SDFile        file;

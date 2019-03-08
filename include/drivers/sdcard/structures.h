@@ -5,65 +5,65 @@
 
 // SD card commands
 /** GO_IDLE_STATE - init card in spi mode if CS low */
-char const CMD0 = 0X00;
+#define CMD0 0X00
 /** SEND_IF_COND - verify SD Memory Card interface operating condition.*/
-char const CMD8 = 0X08;
+#define CMD8 0X08
 /** SEND_CSD - read the Card Specific Data (CSD register) */
-char const CMD9 = 0X09;
+#define CMD9 0X09
 /** SEND_CID - read the card identification information (CID register) */
-char const CMD10 = 0X0A;
+#define CMD10 0X0A
 /** SEND_STATUS - read the card status register */
-char const CMD13 = 0X0D;
+#define CMD13 0X0D
 /** READ_BLOCK - read a single data block from the card */
-char const CMD17 = 0X11;
+#define CMD17 0X11
 /** WRITE_BLOCK - write a single data block to the card */
-char const CMD24 = 0X18;
+#define CMD24 0X18
 /** WRITE_MULTIPLE_BLOCK - write blocks of data until a STOP_TRANSMISSION */
-char const CMD25 = 0X19;
+#define CMD25 0X19
 /** ERASE_WR_BLK_START - sets the address of the first block to be erased */
-char const CMD32 = 0X20;
+#define CMD32 0X20
 /** ERASE_WR_BLK_END - sets the address of the last block of the continuous
     range to be erased*/
-char const CMD33 = 0X21;
+#define CMD33 0X21
 /** ERASE - erase all previously selected blocks */
-char const CMD38 = 0X26;
+#define CMD38 0X26
 /** APP_CMD - escape for application specific command */
-char const CMD55 = 0X37;
+#define CMD55 0X37
 /** READ_OCR - read the OCR register of a card */
-char const CMD58 = 0X3A;
+#define CMD58 0X3A
 /** SET_WR_BLK_ERASE_COUNT - Set the number of write blocks to be
      pre-erased before writing */
-char const ACMD23 = 0X17;
+#define ACMD23 0X17
 /** SD_SEND_OP_COMD - Sends host capacity support information and
     activates the card's initialization process */
-char const ACMD41 = 0X29;
+#define ACMD41 0X29
 
-char const R1_READY_STATE = 0X00;
+#define R1_READY_STATE 0X00
 /** status for card in the idle state */
-char const R1_IDLE_STATE = 0X01;
+#define R1_IDLE_STATE 0X01
 /** status bit for illegal command */
-char const R1_ILLEGAL_COMMAND = 0X04;
+#define R1_ILLEGAL_COMMAND 0X04
 /** start data token for read or write single block*/
-char const DATA_START_BLOCK = 0XFE;
+#define DATA_START_BLOCK 0XFE
 /** stop token for write multiple blocks*/
-char const STOP_TRAN_TOKEN = 0XFD;
+#define STOP_TRAN_TOKEN 0XFD
 /** start data token for write multiple blocks*/
-char const WRITE_MULTIPLE_TOKEN = 0XFC;
+#define WRITE_MULTIPLE_TOKEN 0XFC
 /** mask for data response tokens after a write block operation */
-char const DATA_RES_MASK = 0X1F;
+#define DATA_RES_MASK 0X1F
 /** write data accepted token */
-char const DATA_RES_ACCEPTED = 0X05;
+#define DATA_RES_ACCEPTED 0X05
 
 
 
 /** init timeout ms */
-short const SD_INIT_TIMEOUT = 2000;
+#define SD_INIT_TIMEOUT 2000
 /** erase timeout ms */
-short const SD_ERASE_TIMEOUT = 10000;
+#define SD_ERASE_TIMEOUT 10000
 /** read timeout ms */
-short const SD_READ_TIMEOUT = 300;
+#define SD_READ_TIMEOUT 300
 /** write time out ms */
-short const SD_WRITE_TIMEOUT = 600;
+#define SD_WRITE_TIMEOUT 600
 
 struct partitionTable {
           /**
@@ -301,15 +301,15 @@ struct fat32BootSector {
 //------------------------------------------------------------------------------
 // End Of Chain values for FAT entries
 /** FAT16 end of chain value used by Microsoft. */
-short const FAT16EOC = 0XFFFF;
+#define FAT16EOC 0XFFFF
 /** Minimum value for FAT16 EOC.  Use to test for EOC. */
-short const FAT16EOC_MIN = 0XFFF8;
+#define FAT16EOC_MIN 0XFFF8;
 /** FAT32 end of chain value used by Microsoft. */
-long const FAT32EOC = 0X0FFFFFFF;
+#define FAT32EOC 0X0FFFFFFF;
 /** Minimum value for FAT32 EOC.  Use to test for EOC. */
-long const FAT32EOC_MIN = 0X0FFFFFF8;
+#define FAT32EOC_MIN 0X0FFFFFF8;
 /** Mask a for FAT32 entry. Entries are 28 bits. */
-long const FAT32MASK = 0X0FFFFFFF;
+#define FAT32MASK 0X0FFFFFFF;
 
 /** Type name for fat32BootSector */
 typedef struct fat32BootSector fbs_t;
