@@ -34,3 +34,7 @@ char uart_getchar(FILE *stream __attribute__((unused))) {
     loop_until_bit_is_set(UCSR0A, RXC0); /* Wait until data exists. */
     return UDR0;
 }
+
+void uart_clearscreen(){
+    printf("%c", 12);
+}

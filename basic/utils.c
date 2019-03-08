@@ -1,4 +1,4 @@
-#include "../include/shell/utils.h"
+#include "../include/basic/utils.h"
 
 void shell_utils_cutstr(char *str, size_t n){
     if(n != 0 && str != 0){

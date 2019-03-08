@@ -27,38 +27,63 @@
  * SUCH DAMAGE.
  *
  */
+#ifndef __TOKENIZER_H__
+#define __TOKENIZER_H__
 
-// #include "ubasic.h"
-/*
-static const char program[] =
-"10 gosub 100\n\
-20 for i = 1 to 10\n\
-30 print i\n\
-40 next i\n\
-50 print \"end\"\n\
-60 end\n\
-100 print \"subroutine\"\n\
-110 return\n";
-*/
-// /*---------------------------------------------------------------------------*/
-// int
-// main(void)
-// {
-//   ubasic_init(program);
+#include "vartype.h"
 
-//   do {
-//     ubasic_run();
-//   } while(!ubasic_finished());
+enum {
+  TOKENIZER_ERROR,
+  TOKENIZER_ENDOFINPUT,
+  TOKENIZER_NUMBER,
+  TOKENIZER_STRING,
+  TOKENIZER_VARIABLE,
+  TOKENIZER_LET,
+  TOKENIZER_PRINT,
+  TOKENIZER_IF,
+  TOKENIZER_THEN,
+  TOKENIZER_ELSE,
+  TOKENIZER_FOR,
+  TOKENIZER_TO,
+  TOKENIZER_NEXT,
+  TOKENIZER_GOTO,
+  TOKENIZER_GOSUB,
+  TOKENIZER_RETURN,
+  TOKENIZER_CALL,
+  TOKENIZER_REM,
+  TOKENIZER_PEEK,
+  TOKENIZER_WRITE,
+  TOKENIZER_POKE,
+  TOKENIZER_END,
+  TOKENIZER_COMMA,
+  TOKENIZER_SEMICOLON,
+  TOKENIZER_PLUS,
+  TOKENIZER_MINUS,
+  TOKENIZER_AND,
+  TOKENIZER_OR,
+  TOKENIZER_ASTR,
+  TOKENIZER_SLASH,
+  TOKENIZER_MOD,
+  TOKENIZER_HASH,
+  TOKENIZER_LEFTPAREN,
+  TOKENIZER_RIGHTPAREN,
+  TOKENIZER_LT,
+  TOKENIZER_GT,
+  TOKENIZER_EQ,
+  TOKENIZER_CR,
+};
 
-//   return 0;
-// }
-// /*---------------------------------------------------------------------------*/
+void tokenizer_goto(const char *program);
+void tokenizer_init(const char *program);
+void tokenizer_next(void);
+int tokenizer_token(void);
+VARIABLE_TYPE tokenizer_num(void);
+int tokenizer_variable_num(void);
+void tokenizer_string(char *dest, int len);
 
-// 10 gosub 100
-// 20 for i = 1 to 10
-// 30 print i
-// 40 next i
-// 50 print "end"
-// 60 end
-// 100 print "subroutine"
-// 110 return
+int tokenizer_finished(void);
+void tokenizer_error_print(void);
+
+char const *tokenizer_pos(void);
+
+#endif /* __TOKENIZER_H__ */

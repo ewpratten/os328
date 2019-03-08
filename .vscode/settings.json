@@ -3,6 +3,9 @@
         "*.tidal": "haskell",
         "serial.h": "c",
         "ubasic.h": "c",
-        "tokenizer.h": "c"
+        "tokenizer.h": "c",
+        "sdcard.h": "c",
+        "gpio.h": "c",
+        "structures.h": "c"
     }
 }

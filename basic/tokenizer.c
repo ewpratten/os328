@@ -36,7 +36,7 @@
 #define DEBUG_PRINTF(...)
 #endif
 
-#include "../include/shell/tokenizer.h"
+#include "../include/basic/tokenizer.h"
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -67,6 +67,7 @@ static const struct keyword_token keywords[] = {
   {"call", TOKENIZER_CALL},
   {"rem", TOKENIZER_REM},
   {"peek", TOKENIZER_PEEK},
+  {"writea", TOKENIZER_WRITE},
   {"poke", TOKENIZER_POKE},
   {"end", TOKENIZER_END},
   {NULL, TOKENIZER_ERROR}

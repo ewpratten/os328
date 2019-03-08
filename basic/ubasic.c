@@ -36,8 +36,10 @@
 #define DEBUG_PRINTF(...)
 #endif
 
-#include "../include/shell/ubasic.h"
-#include "../include/shell/tokenizer.h"
+#include "../include/basic/ubasic.h"
+#include "../include/basic/tokenizer.h"
+
+#include "../include/io/gpio.h"
 
 #include <stdio.h> /* printf() */
 #include <stdlib.h> /* exit() */
@@ -525,6 +527,24 @@ peek_statement(void)
 }
 /*---------------------------------------------------------------------------*/
 static void
+write_statement(void)
+{
+  int pin;
+  int level;
+
+  accept(TOKENIZER_WRITE);
+  pin = tokenizer_variable_num();
+  accept(TOKENIZER_VARIABLE);
+  level = tokenizer_variable_num();
+  accept(TOKENIZER_VARIABLE);
+  accept(TOKENIZER_CR);
+
+  gpio_mode(pin, OUTPUT)
+  gpio_write(pin, level);
+  
+}
+/*---------------------------------------------------------------------------*/
+static void
 poke_statement(void)
 {
   VARIABLE_TYPE poke_addr;
@@ -574,6 +594,9 @@ statement(void)
     break;
   case TOKENIZER_PEEK:
     peek_statement();
+    break;
+  case TOKENIZER_WRITE:
+    write_statement();
     break;
   case TOKENIZER_POKE:
     poke_statement();

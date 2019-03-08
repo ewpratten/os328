@@ -1,6 +1,6 @@
 // // This file is for testing the interpreter without an arduino. Keep commented if not using
 
-// #include "../include/shell/ubasic.h"
+// #include "../include/basic/ubasic.h"
 
 // #include <string.h>
 // #include <stdio.h>
